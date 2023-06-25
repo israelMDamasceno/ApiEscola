@@ -47,10 +47,28 @@ namespace Repository.Service
             return obj;
 
         }
+        public async Task<object> CriarNovaTurma(CriarTurmaCommand command)
+        {
+            string Nome = command.Turma;
+            bool Ativo = command.Ativo;
+            int CursoId = command.CursoId;
+            int Ano = command.Ano;
+            var api = RestService.For<IUsuarioService>(url);
+            object obj = api.NovoTurma(Nome, Ativo, Ano, CursoId).Result.Data;
+            return obj;
+
+        }
         public async Task<IEnumerable<CursoViewModel>> ListarCursos()
         {
             var api = RestService.For<IUsuarioService>(url);
             var r= api.ListarCursos().Result.Data;
+
+            return r.ToList();
+        }
+        public async Task<IEnumerable<TurmaViewModel>> ListarTurmas()
+        {
+            var api = RestService.For<IUsuarioService>(url);
+            var r = api.ListarTurmas().Result.Data;
 
             return r.ToList();
         }

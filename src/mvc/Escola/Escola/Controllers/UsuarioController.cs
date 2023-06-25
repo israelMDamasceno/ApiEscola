@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Repository.Command;
 using Repository.Enums;
 using Repository.Service;
@@ -23,7 +24,7 @@ namespace Escola.Controllers
         public IActionResult Login(UsuarioCommand command)
         {
             var result = _service.UsuarioLogado(command);
-           
+
             if (result.Result == null)
                 return Ok(new { success = true, data = "Você digitou usuário ou senha errada" });
 
@@ -53,14 +54,31 @@ namespace Escola.Controllers
         }
         public IActionResult CriarTurma()
         {
+            var result = _service.ListarCursos();
+            var cursos = new List<CursoViewModel>();
+            cursos.AddRange(result.Result.ToList());
+            List <SelectListItem> listaConvertida = new List<SelectListItem>();
 
-            return View();
+            foreach (var item in cursos)
+            {
+                SelectListItem selectItem = new SelectListItem
+                {
+                    Value = item.CursoId.ToString(),
+                    Text = item.Nome
+                };
+                listaConvertida.Add(selectItem);
+            }
+
+            ViewBag.ListaSelectItems = listaConvertida;
+            var turma = new CriarTurmaCommand();
+            turma.Cursos = cursos;
+            return View(turma);
         }
         [HttpPost]
         public IActionResult CriarTurma(CriarTurmaCommand command)
         {
-
-            return View();
+            var result = _service.CriarNovaTurma(command);
+            return RedirectToAction("ListarTurma");
         }
         public IActionResult CriarCurso()
         {
@@ -75,14 +93,18 @@ namespace Escola.Controllers
         [HttpGet]
         public IActionResult ListarCurso()
         {
-            var result =  _service.ListarCursos();
+            var result = _service.ListarCursos();
             var list = new List<CursoViewModel>();
             list.AddRange(result.Result.ToList());
             return View(list);
         }
         public IActionResult ListarTurma()
         {
-            return View();
+            var result = _service.ListarTurmas();
+            var list = new List<TurmaViewModel>();
+            list.AddRange(result.Result.ToList());
+            return View(list);
+
         }
         public IActionResult ListarAlunoTurma()
         {

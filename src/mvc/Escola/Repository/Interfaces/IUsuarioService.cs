@@ -25,5 +25,11 @@ namespace Repository.Interfaces
         
         [Get("/Curso/v1/ListarCursos")]
         Task<ResponseApi<IEnumerable<CursoViewModel>>> ListarCursos();
+
+        [Post("/Turma/v1/CriarTurma")]
+        Task<ResponseApi<int>> NovoTurma(string Nome, bool Ativo, int Ano, int CursoId);
+
+        [Get("/Turma/v1/ListarTurmas")]
+        Task<ResponseApi<IEnumerable<TurmaViewModel>>> ListarTurmas();
     }
 }

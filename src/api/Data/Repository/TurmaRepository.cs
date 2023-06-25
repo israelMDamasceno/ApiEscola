@@ -58,7 +58,7 @@ namespace Data.Repository
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                TurmaId = await connection.ExecuteScalarAsync<int>(query, new { Nome, Ativo, Ano, CursoId });
+                TurmaId = await connection.ExecuteScalarAsync<int>(query, new { Turma = Nome, Ativo = Ativo, Ano = Ano, CursoId = CursoId });
                 return TurmaId;
             }
         }

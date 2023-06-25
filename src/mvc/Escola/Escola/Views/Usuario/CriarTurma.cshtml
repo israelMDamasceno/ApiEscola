@@ -6,6 +6,7 @@
 
 <h1>CriarTurma</h1>
 
+<h4>CriarTurmaCommand</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -13,7 +14,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="CursoId" class="control-label"></label>
-                <input asp-for="CursoId" class="form-control" />
+                <select asp-for="CursoId" asp-items="ViewBag.ListaSelectItems"></select>
                 <span asp-validation-for="CursoId" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -32,14 +33,14 @@
                 </label>
             </div>
             <div class="form-group">
-                <input type="submit" value="CRIAR" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    @*<a asp-action="Index">Back to List</a>*@
 </div>
 
 @section Scripts {
