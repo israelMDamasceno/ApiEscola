@@ -1,0 +1,39 @@
+﻿@model Repository.Command.EditarUsuarioCommand
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h1>Editar</h1>
+
+<h4>Editar Usuario</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @using (Html.BeginForm("Editar", "Usuario", FormMethod.Post))
+        {
+            @Html.HiddenFor(u => u.UsuarioId);
+            <div class="form-outline mb-3">
+                @Html.TextBoxFor(m => m.Nome, new { @class = "form-control"})
+                <label class="form-label" for="usuario">Usuário</label>
+            </div>
+            <div class="form-outline mb-3">
+                @Html.TextBoxFor(m => m.NomeUsuario, new { @class = "form-control"})
+                <label class="form-label" for="usuario">Usuário</label>
+            </div>
+            <div class="form-outline mb-3">
+                @Html.TextBoxFor(m => m.Senha, new { @class = "form-control", @type="password"})
+                <label class="form-label" for="senha">Senha</label>
+            </div>
+            <button id="Submit" type="submit" value="Entrar" class="btn btn-primary btn-block mb-4">Salvar</button>
+        }
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

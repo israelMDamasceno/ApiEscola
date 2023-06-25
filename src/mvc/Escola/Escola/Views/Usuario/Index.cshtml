@@ -1,0 +1,24 @@
+﻿@model Repository.Command.UsuarioCommand
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Login</h1>
+
+<div>
+    @using (Html.BeginForm("Login", "Usuario", FormMethod.Post))
+    {
+        <div class="form-outline mb-3">
+            @Html.TextBoxFor(m => m.NomeUsuario, new { @class = "form-control"})
+            <label class="form-label" for="usuario">Usuário</label>
+        </div>
+
+        <div class="form-outline mb-3">
+            @Html.TextBoxFor(m => m.Senha, new { @class = "form-control", @type="password"})
+            <label class="form-label" for="senha">Senha</label>
+        </div>
+
+        <button id="Submit" type="submit" value="Entrar" class="btn btn-primary btn-block mb-4">Entrar</button>
+    }
+    <p>Não tem Cadastro, Click @Html.ActionLink("Novo Cadastro", "Cadastrar")</p>
+</div>
