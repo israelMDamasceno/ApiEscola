@@ -51,7 +51,7 @@ namespace Data.Repository
            ,@Turma
            ,@Ano
            ,@Ativo 
-
+)
  ";
 
             #endregion
