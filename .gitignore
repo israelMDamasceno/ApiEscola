@@ -1,0 +1,18 @@
+﻿################################################################################
+# Este arquivo .gitignore foi criado automaticamente pelo Microsoft(R) Visual Studio.
+################################################################################
+
+/Api/Api/.vs/Api/v17
+/src/api/Application/bin/Debug/net7.0
+/src/api/Application/obj
+/src/api/CrossCutting/bin/Debug/net7.0
+/src/api/CrossCutting/obj
+/src/api/Data/bin/Debug/net7.0
+/src/api/Data/obj
+/src/api/Domain/bin/Debug/net7.0
+/src/api/Domain/obj
+/src/api/Service/bin/Debug/net7.0
+/src/api/Service/obj
+/src/mvc/Escola/Escola/bin/Debug/net7.0
+/src/mvc/Escola/Repository/bin/Debug/net7.0
+/src/mvc/Escola/Repository/obj
