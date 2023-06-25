@@ -1,6 +1,8 @@
 # VagaFiap
 Projeto Vaga Fiap
 
+#Para Executar sem erros, peço que entre nos 3 repositories e troca a string de conexão aprontando para instância que vão criar a base;
+
 Scripts
 
 # Antes de executar o projeto, abra uma instância no Microsoft SQL Management Studio
@@ -95,21 +97,21 @@ GO
 
 INSERT Usuario(Usuario, Senha, TipoUsuarioId, Ativo)
 Values('User1', 'e7d80ffeefa212b7c5c55700e4f7193e', 1, 1)
-# SELECT * FROM [ESCOLA].[dbo].Usuario] WITH (NOLOCK)
+SELECT * FROM [ESCOLA].[dbo].Usuario] WITH (NOLOCK)
 
 
 INSERT INTO Pessoa(Nome,UsuarioId)
 VALUES('User teste', 1)
-# SELECT * FROM [ESCOLA].[dbo].[Pessoa] WITH (NOLOCK)
+SELECT * FROM [ESCOLA].[dbo].[Pessoa] WITH (NOLOCK)
 
 INSERT INTO [ESCOLA].[dbo].[Curso](Nome, Ativo)
 VALUES ('PEDAGOGIA', 1)
-# SELECT * FROM [ESCOLA].[dbo].[Curso] WITH (NOLOCK)
+SELECT * FROM [ESCOLA].[dbo].[Curso] WITH (NOLOCK)
 
 INSERT INTO [ESCOLA].[dbo].[TURMA](Turma,CursoId, Ano, Ativo)
 VALUES ('PEDAGOGIA', 1, 2023, 1)
-# SELECT * FROM [ESCOLA].[dbo].TURMA WITH (NOLOCK)
+SELECT * FROM [ESCOLA].[dbo].TURMA WITH (NOLOCK)
 
 INSERT INTO [ESCOLA].[dbo].[AlunoTurma](TurmaId, UsuarioId)
 VALUES(1, 1)
-# SELECT * FROM [ESCOLA].[dbo].[AlunoTurma] WITH (NOLOCK)
+SELECT * FROM [ESCOLA].[dbo].[AlunoTurma] WITH (NOLOCK)
